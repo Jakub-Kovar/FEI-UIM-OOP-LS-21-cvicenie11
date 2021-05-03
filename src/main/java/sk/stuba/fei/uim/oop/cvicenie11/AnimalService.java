@@ -15,18 +15,24 @@ public class AnimalService implements IAnimalService {
     @Autowired
     public AnimalService(AnimalRepository repository) {
         this.repository = repository;
+
         Animal a1 = new Animal();
         a1.setSpecies("Dog");
         this.repository.save(a1);
         Animal a2 = new Animal();
         a2.setSpecies("Cat");
-        System.out.println(a2.getId());
-        a2 = this.repository.save(a2);
-        System.out.println(a2.getId());
+        this.repository.save(a2);
     }
 
     @Override
     public List<Animal> getAll() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public Animal create(AnimalRequest request) {
+        Animal newAnimal = new Animal();
+        newAnimal.setSpecies(request.getSpecies());
+        return this.repository.save(newAnimal);
     }
 }
