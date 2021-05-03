@@ -38,4 +38,9 @@ public class AnimalService implements IAnimalService {
         newAnimal.setName(request.getName());
         return this.repository.save(newAnimal);
     }
+
+    @Override
+    public List<Animal> getAllByName(String name) {
+        return this.repository.findByName(name);
+    }
 }

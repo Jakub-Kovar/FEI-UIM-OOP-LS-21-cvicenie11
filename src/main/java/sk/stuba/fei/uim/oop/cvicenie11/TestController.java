@@ -28,4 +28,9 @@ public class TestController {
     public AnimalResponse addAnimal(@RequestBody AnimalRequest request) {
         return new AnimalResponse(this.service.create(request));
     }
+
+    @GetMapping("/{name}")
+    public List<AnimalResponse> getAllAnimalsByName(@PathVariable("name") String name) {
+        return this.service.getAllByName(name).stream().map(AnimalResponse::new).collect(Collectors.toList());
+    }
 }
