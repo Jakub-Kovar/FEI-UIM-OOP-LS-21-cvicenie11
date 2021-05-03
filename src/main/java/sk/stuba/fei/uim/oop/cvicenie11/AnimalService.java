@@ -21,7 +21,9 @@ public class AnimalService implements IAnimalService {
         this.repository.save(a1);
         Animal a2 = new Animal();
         a2.setSpecies("Cat");
-        this.repository.save(a2);
+        a2 = this.repository.save(a2);
+        this.repository.delete(a2);
+//        this.repository.deleteById(a2.getId());
     }
 
     @Override
