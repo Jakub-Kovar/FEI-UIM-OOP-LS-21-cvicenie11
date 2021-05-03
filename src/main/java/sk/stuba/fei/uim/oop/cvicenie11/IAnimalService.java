@@ -1,5 +1,7 @@
 package sk.stuba.fei.uim.oop.cvicenie11;
 
-public interface IAnimalService {
+import java.util.List;
 
+public interface IAnimalService {
+    List<Animal> getAll();
 }
