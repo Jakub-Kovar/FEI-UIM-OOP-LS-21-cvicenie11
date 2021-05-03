@@ -18,12 +18,12 @@ public class AnimalService implements IAnimalService {
 
         Animal a1 = new Animal();
         a1.setSpecies("Dog");
+        a1.setName("Rex");
         this.repository.save(a1);
         Animal a2 = new Animal();
         a2.setSpecies("Cat");
-        a2 = this.repository.save(a2);
-        this.repository.delete(a2);
-//        this.repository.deleteById(a2.getId());
+        a2.setName("Felix");
+        this.repository.save(a2);
     }
 
     @Override
@@ -35,6 +35,7 @@ public class AnimalService implements IAnimalService {
     public Animal create(AnimalRequest request) {
         Animal newAnimal = new Animal();
         newAnimal.setSpecies(request.getSpecies());
+        newAnimal.setName(request.getName());
         return this.repository.save(newAnimal);
     }
 }

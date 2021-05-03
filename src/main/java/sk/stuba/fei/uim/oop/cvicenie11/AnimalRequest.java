@@ -7,4 +7,5 @@ import lombok.Setter;
 @Getter
 public class AnimalRequest {
     private String species;
+    private String name;
 }
